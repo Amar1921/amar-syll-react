@@ -8,13 +8,15 @@ const Search =()=>  {
     const [Livre, setLivre]=useState('');
     const [books, setBooks] = useState([]);
     const [maxResult, setMaxResult] = useState(15);
+    const [errorApi, setErrorApi] = useState("")
     const API_KEY = `AIzaSyC5jXdarFSUuY_-I-8rNZWHM_3bG9gcZ48`
     const Max_Results=maxResult
     const API_URL =`https://www.googleapis.com/books/v1/volumes?q=${Livre}&maxResults=${Max_Results}&key=${API_KEY}`;
-    console.log(API_URL)
+   // console.log(API_URL)
     const  book =(e)=> {
         setLivre(e.target.value)
     }
+
 
      //Function verification value input
      const verifInputAndSearchBook=()=>{
@@ -62,9 +64,17 @@ const Search =()=>  {
             .get(API_URL)
             .then((response)=> setBooks([...response.data.items]))
             .catch(err=>{
-                console.log(err)
+                const er = `BLM DE RESEAU ${err}`
+                console.error(`BLM DE RESEAU ${err}`)
+                setErrorApi(er)
+               // console.log(er)
             })
    }
+
+    /*************RESULT SEARCH O ERROR API**********/
+
+    /*************RESULT SEARCH O ERROR API**********/
+    const render = errorApi===""?<BookList book={books}/> :<h3 className="text-center text-danger">Error Network !!</h3>
         return(
             <div className="container-fluid mt-2 mx-xs-0">
                 <div id="background" >
@@ -102,7 +112,7 @@ const Search =()=>  {
                         </div>
                     </div>
                 </div>
-                    <BookList book={books}/>
+                {render}
             </div>
         )
   }

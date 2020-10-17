@@ -41,7 +41,7 @@ const BookCard = (props) => {
                         {title}
                     </h5>
                     <button aria-label='Close' className='close' type='button' onClick={toggle}>
-                        <span  class="text-danger"><i className="fa fa-window-close" aria-hidden="true"/>
+                        <span  className="text-danger"><i className="fa fa-window-close" aria-hidden="true"/>
                         </span>
                     </button>
                 </div>
