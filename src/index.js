@@ -6,8 +6,8 @@ import './style/style.css';
 
 
 render(
-  <Search/>,
-  document.getElementById('root')
+    <Search/>,
+    document.getElementById('root')
 );
 
 
