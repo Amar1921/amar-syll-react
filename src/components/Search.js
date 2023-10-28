@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import axios from 'axios'
 import BookList from "./BookList"
 import {Spinner} from "reactstrap";
@@ -7,7 +7,7 @@ import Footer from "./footer";
 //require('dotenv').config();
 const Search = () => {
 
-    const [Livre, setLivre] = useState('');
+    const [Livre, setLivre] = useState('React');
     const [books, setBooks] = useState([]);
     const [maxResult, setMaxResult] = useState(15);
     const [spinner, setSpinner] = useState("");
@@ -77,7 +77,9 @@ const Search = () => {
             .then((response) => {
                 const res = response.data.items
                 console.log(res)
-                setBooks([...res])
+               setTimeout(()=>{
+                   setBooks([...res])
+               },1000)
             })
             .then(() => setSpinner(""))
             .catch(err => {
@@ -88,7 +90,10 @@ const Search = () => {
                 // console.log(er)
             })
     }
-
+    
+    useEffect(() => {
+        searchBooks()
+    }, [Livre]);
     /*************RESULT SEARCH O ERROR API END**********/
     const DisplayResult = errorApi === "" ? <BookList book={books}/> :
         <h3 className="text-center text-danger">Error Network !!</h3>
