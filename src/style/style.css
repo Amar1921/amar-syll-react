@@ -35,7 +35,9 @@
 }
 
 body {
+    /*
     background-color: darkgray;
+    */
 }
 
 #error {
@@ -50,4 +52,13 @@ body {
 .shadow:hover {
     box-shadow: 8px 8px 12px #aaa;
     transform: translateY(5px);
+}
+.book-list{
+    max-height: 500px;
+    height: 500px;
+    overflow: scroll;
+}
+.height-card{
+    max-height: 230px;
+    overflow: scroll;
 }

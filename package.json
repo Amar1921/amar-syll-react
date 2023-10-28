@@ -1,35 +1,37 @@
 {
-  "name": "test-biblio",
+  "name": "amar-syll-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.19.2",
-    "bootstrap": "^4.5.3",
-    "dotenv": "^8.2.0",
-    "jquery": "^3.5.1",
-    "loadash": "^1.0.0",
-    "lodash": "^4.17.15",
-    "popper.js": "^1.16.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
-    "react-spinners": "^0.9.0",
-    "reactstrap": "^8.5.1",
-    "redux": "^4.0.5"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.6.0",
+    "mdb-react-ui-kit": "^6.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.17.0",
+    "react-scripts": "5.0.1",
+    "react-spinners": "^0.13.8",
+    "reactstrap": "^9.2.0",
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.89.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build ",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "resolve.fallback": {
+    "crypto": false
   },
   "browserslist": {
     "production": [
@@ -42,5 +44,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "assert": "^2.1.0",
+    "buffer": "^6.0.3",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.3"
   }
 }

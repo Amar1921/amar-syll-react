@@ -23,7 +23,7 @@ const BookCard = (props) => {
 
     return (
 
-        <div className="col-sm-5 col-md-4 col-lg-3 d-flex justify-content-around my-2  ">
+        <div className="col-sm-5 height-card col-md-4 col-lg-3 d-flex justify-content-around my-2  ">
             <div style={{width: '250px'}} className=" border rounded bg-light">
                 <img src={thumbnail} alt={title} className=" shadow mt-1 rounded ml-2" onClick={toggle}/>
                 <div className="pl-2  my-2 d-flex flex-column justify-content-start">

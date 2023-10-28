@@ -1,9 +1,10 @@
 import React, {useState} from "react"
 import axios from 'axios'
 import BookList from "./BookList"
-import Spinner from "reactstrap/es/Spinner";
+import {Spinner} from "reactstrap";
+import Footer from "./footer";
 
-require('dotenv').config();
+//require('dotenv').config();
 const Search = () => {
 
     const [Livre, setLivre] = useState('');
@@ -81,8 +82,8 @@ const Search = () => {
             .then(() => setSpinner(""))
             .catch(err => {
                 setSpinner("")
-                const er = `BLM DE RESEAU ${err}`
-                console.error(`BLM DE RESEAU ${err}`)
+                const er = `Error network ${err}`
+                console.error(er)
                 setErrorApi(er)
                 // console.log(er)
             })
@@ -105,7 +106,7 @@ const Search = () => {
                 <div className="row mt-3 d-flex justify-content-center ">
                     <div className="col-4 d-flex justify-content-center ">
                         <input type="text" className=" form-control m-3 text-center "
-                               value={Livre} onChange={bookName}/>
+                            placeholder="Book title"    value={Livre} onChange={bookName}/>
                     </div>
 
                 </div>
@@ -139,6 +140,13 @@ const Search = () => {
             {/********DISPLAY RESULTS ***************/}
             {DisplayResult}
             {/********DISPLAY RESULTS END ***************/}
+        {/* FOOTER   */}
+            <hr/>
+          <div className="row d-flex justify-content-center bg-light">
+              <div className="col-sm-10">
+                  <Footer/>
+              </div>
+          </div>
         </div>
     )
 }
