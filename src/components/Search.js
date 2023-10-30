@@ -14,8 +14,7 @@ const Search = () => {
     const [errorApi, setErrorApi] = useState("");
     const [error, setError] = useState("")
     const API_KEY = `AIzaSyC5jXdarFSUuY_-I-8rNZWHM_3bG9gcZ48`
-    const Max_Results = maxResult
-    const API_URL = `https://www.googleapis.com/books/v1/volumes?q=${Livre}&maxResults=${Max_Results}&key=${API_KEY}`;
+    const API_URL = `https://www.googleapis.com/books/v1/volumes?q=${Livre}&maxResults=${maxResult}&key=${API_KEY}`;
     // console.log(API_URL)
     const bookName = (e) => {
         setLivre(e.target.value)
@@ -66,20 +65,32 @@ const Search = () => {
     }
 
     /******************Define Max results******************/
-
+    async function getData() {
+        let response;
+        let configuration = {
+            method: 'get',
+            url: API_URL,
+            headers: {
+                'Access-Control-Request-Headers': 'application/json',
+                'Accept-Encoding': 'multipart/encrypted'
+            }
+        };
+        try {
+            response = await axios.request(configuration);
+        } catch (error) {
+            console.log(error);
+        }
+        
+        return response
+    }
     /*************RESULT SEARCH O ERROR API***************/
     function searchBooks() {
         setErrorApi('')
         setSpinner(() => (<Spinner animation="grow" size="lg"/>))
 
-        axios
-            .get(API_URL)
+        getData()
             .then((response) => {
-                const res = response.data.items
-                console.log(res)
-               setTimeout(()=>{
-                   setBooks([...res])
-               },1000)
+                setBooks([...response.data.items])
             })
             .then(() => setSpinner(""))
             .catch(err => {
