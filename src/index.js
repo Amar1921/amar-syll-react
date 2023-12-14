@@ -1,14 +1,19 @@
 import React from 'react';
-import {render} from 'react-dom';
+import {createRoot} from "react-dom/client";
 import './style/index.css';
 import './style/style.css';
 import Search from "./components/Search";
+import {Provider} from "react-redux";
+import {store} from "./redux/store";
 
+const container = document.getElementById('root')
 
-render(
-    <Search/>,
-    document.getElementById('root')
-);
+const root = createRoot(container)
 
+root.render(
+    <Provider store={store}>
+        <Search/>
+    </Provider>
+)
 
 

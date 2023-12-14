@@ -12,9 +12,10 @@ const Search = () => {
     const [maxResult, setMaxResult] = useState(15);
     const [spinner, setSpinner] = useState("");
     const [errorApi, setErrorApi] = useState("");
+    //const API_KEY = process.env.REACT_APP_API_KEY
     const API_KEY = `AIzaSyC5jXdarFSUuY_-I-8rNZWHM_3bG9gcZ48`
     const API_URL = `https://www.googleapis.com/books/v1/volumes?q=${Livre}&maxResults=${maxResult}&key=${API_KEY}`;
-    // console.log(API_URL)
+     console.log(process.env.REACT_APP_API_KEY)
     const bookName = (e) => {
         setLivre(e.target.value)
     }
